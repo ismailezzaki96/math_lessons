@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html dir="auto">
+  <head>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <meta charset="utf-8"/>
+    <title>Calcul trigonométrique</title>
+    <!-- script -->
+    <script>
+      MathJax = {
+      loader: {
+      load: ["input/asciimath", "output/chtml"],
+      },
+      styles: {
+      '.mjx-chtml': { padding: '0.1em 0.1em' }, //new names of the selectors, working!
+      '.MJXc-display, .mjx-chtml': { color: 'green' },
+      'mjx-mover': { color: 'green' }
+      },
+      asciimath: {
+      delimiters: [
+      ["$", "$"]
+      ],
+      },
+      };
+    </script>
+    <!-- <script type="text/javascript" id="MathJax-script" src="scripts/startup.js"></script> -->
+    <!-- <script id="MathJax-script" async src="scripts/mathjax/tex-chtml.js"></script> -->
+    <script src="GeoGebra/deployggb.js"></script>
+    <script src="scripts/ASCIIMathML.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/vivus@0.4.6/dist/vivus.min.js "></script>
+    <script>
+      var params = {
+            // "width":700,
+            // "height":300,
+            "showMenuBar":false,
+            "showAlgebraInput":false,
+            "showToolBar":false,
+            "showToolBarHelp":false,
+            "showResetIcon":false,
+            "enableLabelDrags":false,
+            "enableShiftDragZoom":false,
+            "enableRightClick":false,
+            "errorDialogsActive":false,
+            "useBrowserForJS":false,
+            "allowStyleBar":false,
+            "preventFocus":true,
+            "showZoomButtons":false,
+            "capturingThreshold":3,
+            // add code here to run when the applet starts
+            "appletOnLoad":function(api){ /* api.evalCommand('Segment((1,2),(3,4))');*/ },
+            "showFullscreenButton":true,
+            "scale":1,
+            "disableAutoScale":false,
+            "allowUpscale":false,
+            "clickToLoad":false,
+            "appName":"classic",
+            "buttonRounding":0.7,
+            "buttonShadows":false,
+            "language":"en",
+            // use this instead of ggbBase64 to load a .ggb file
+            };
+    </script>
+    <!-- style -->
+    <!-- <link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css">-->
+    <!-- <link rel="stylesheet" href="styles/cursor.css"/> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/animate.css">
+    <style>
+      @page {
+          size:  margin: 0cm;
+          }
+    </style>
+  </head>
+  <!-- <body class=" libertinus"> -->
+  <body class=" ">
+    <section class="sheet padding-5mm">
+      <!-- DAY OF THE WEEK -->
+      <!-- CLOCK -->
+      <button class="student" onclick='window.open( document.title+".pdf")'  type="button"> le cours pdf</button>
+      <button class="student" onclick='window.open( "serie.pdf")'  type="button"> serie des exercies pdf</button>
+      <button class="student" onclick='window.open( "resume.pdf")'  type="button"> Résumé pdf</button>
+      <button class="fiche" onclick='document.getElementsByClassName("jodada")[0].style.display = "block";'  type="button"> fiche</button>
+      <div class="clock" id="clock">
+        <span class="hours"></span>
+        :
+        <span class="minutes"></span>
+        :
+        <span class="seconds"></span>
+      </div>
+      <div id="TOC" style="display: none;" >
+        <ul>
+        <li><a href="#calcul-trigonométrique"
+        id="toc-calcul-trigonométrique">Calcul trigonométrique</a>
+        <ul>
+        <li><a href="#cercle-trigonométrique-abscisse-curviligne"
+        id="toc-cercle-trigonométrique-abscisse-curviligne">Cercle
+        trigonométrique – Abscisse curviligne</a>
+        <ul>
+        <li><a href="#révision" id="toc-révision">révision</a></li>
+        <li><a href="#activité" id="toc-activité">activité</a></li>
+        <li><a href="#def" id="toc-def">définition</a></li>
+        <li><a href="#remarque" id="toc-remarque">remarque</a></li>
+        <li><a href="#exemple-1" id="toc-exemple-1">Exemple 1</a></li>
+        <li><a href="#exemple-2" id="toc-exemple-2">Exemple 2</a></li>
+        <li><a href="#app" id="toc-app">application</a></li>
+        </ul></li>
+        <li><a href="#angles-orientés" id="toc-angles-orientés">Angles
+        orientés</a>
+        <ul>
+        <li><a href="#def-1" id="toc-def-1">définition</a></li>
+        <li><a href="#remarque-1" id="toc-remarque-1">remarque</a></li>
+        <li><a href="#app-1" id="toc-app-1">application</a></li>
+        <li><a href="#remarque-2" id="toc-remarque-2">remarque</a></li>
+        <li><a href="#def-2" id="toc-def-2">définition</a></li>
+        <li><a href="#remarque-3" id="toc-remarque-3">remarque</a></li>
+        <li><a href="#exemple" id="toc-exemple">Exemple</a></li>
+        <li><a href="#propriété" id="toc-propriété">propriété</a></li>
+        <li><a href="#application"
+        id="toc-application">application</a></li>
+        <li><a href="#activité-1" id="toc-activité-1">activité</a></li>
+        <li><a href="#application-1"
+        id="toc-application-1">application</a></li>
+        </ul></li>
+        </ul></li>
+        </ul>
+      </div>
+      <div class="jodada">
+      <table>
+      <thead>
+      <tr class="header">
+      <th>Niveau</th>
+      <th>Chapitre</th>
+      <th>Devoir</th>
+      <th>Volume hohaire</th>
+      <th>Date</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="odd">
+      <td>TCS</td>
+      <td>calcul numérique</td>
+      <td>3</td>
+      <td>8</td>
+      <td>1</td>
+      </tr>
+      </tbody>
+      </table>
+      <div class="flex-container">
+      <section id="contenus" class="grid-item item1">
+      <h5>Contenus :</h5>
+      <ul>
+      <li>Equations et inéquations du premier degré à une inconnue
+      ;</li>
+      <li>Equations et inéquations du second degré à une inconnue ;</li>
+      <li>Forme canonique d’un trinôme</li>
+      <li>Equations du second degré à une inconnue ;</li>
+      <li>Signe d’un trinôme du second degré</li>
+      <li>Inéquations du second degré à une inconnue ;</li>
+      <li>Les systèmes :</li>
+      <li>Equations du premier degré à deux inconnues ;</li>
+      <li>Systèmes de deux équations du premier degré à deux inconnues
+      ;</li>
+      <li>Régionnement du plan.</li>
+      </ul>
+      </section>
+      <section id="pre-requis" class="grid-item">
+      <h5>PRE-REQUIS :</h5>
+      <ul>
+      <li>polynomes</li>
+      <li>ordre</li>
+      <li>Equations et Inéquations $1^(ere) degré$</li>
+      </ul>
+      </section>
+      <section id="rec-péd.." class="grid-item">
+      <h5>Rec… péd..</h5>
+      <ul>
+      <li>Les techniques de résolution des équations et inéquations du
+      premier degré à une inconnue ont été étudiées au collège, il
+      faudra renforcer cette pratique par l’étude de quelques exemples
+      simples faisant intervenir la valeur absolue et les équations
+      paramétriques simples, dans le but de développer la capacité des
+      élèves à utiliser le raisonnement par disjonction des cas.</li>
+      <li>Il faudra habituer les élèves à résoudre des équations du
+      second degré sans recours au discriminant (racines évidentes,
+      techniques de factorisation,…).</li>
+      <li>Les équations et inéquations paramétriques du second degré
+      sont hors programme ;</li>
+      <li>Des problèmes, issus de la vie quotidienne ou des autres
+      matières, devront être proposés dans le but d’habituer les élèves
+      à mathématiser des situations et de les résoudre ;</li>
+      <li>Les élèves ayant déjà utilisé la méthode de substitution et la
+      méthode des combinaisons linéaires, pour résoudre un système de
+      deux équations à deux inconnues, il faudra renforcer celles- ci,
+      par la méthode du déterminant à l’aide des exercices ;</li>
+      <li>Il faudra lier la résolution d’un système de deux équations à
+      l’étude de la position relative de deux droites;</li>
+      <li>On exploitera la représentation graphique des solutions d’une
+      inéquation du premier degré à deux inconnues dans la résolution de
+      quelques problèmes</li>
+      </ul>
+      </section>
+      <section id="cap-att.." class="grid-item">
+      <h5>Cap… att..</h5>
+      <ul>
+      <li>Résoudre des équations et des inéquations se ramenant à la
+      résolution d’équations et d’inéquations du premier ou du second
+      degré à une inconnue ;</li>
+      <li>Résoudre un système de deux équations du premier degré à deux
+      inconnues en utilisant différentes méthodes (combinaison linéaire,
+      substitution, déterminant) ;</li>
+      <li>Mathématiser, en utilisant des expressions, des équations, des
+      inéquations, des inégalités ou des systèmes, une situation faisant
+      intervenir des quantités variables ;</li>
+      <li>Représenter graphiquement les solutions d’inéquations ou de
+      systèmes d’inéquations du premier degré à deux inconnues, et
+      utiliser cette représentation dans le régionnement du plan et dans
+      la résolution de problèmes</li>
+      </ul>
+      </section>
+      </div>
+      <!-- ##### Niveau des PRE-REQUIS : ......... / 10 -->
+      <!---->
+      <!-- ##### Satisfaction : ......... / 10 -->
+      <!---->
+      <!-- ##### Notes : -->
+      </div>
+      <hr />
+      <h1 id="calcul-trigonométrique">Calcul trigonométrique</h1>
+      <h2 id="cercle-trigonométrique-abscisse-curviligne">Cercle
+      trigonométrique – Abscisse curviligne</h2>
+      <h4 id="révision">révision</h4>
+      <ol type="1">
+      <li>donner le périmètre (المحيط) d’un cercle</li>
+      <li>donner la relation entre l’abscisse d’un point et la distance
+      de l’origine</li>
+      <li>l’origine des mots triangle et trigonométrique</li>
+      </ol>
+      <p><a href="./images/10,000_digits_of_pi_-_poster.svg">valeur de
+      $pi$</a></p>
+      <h4 id="activité">activité</h4>
+      <p>On considère le cercle $(C)$ de centre $O$ et de rayon $r=1$
+      (Voir la figure ci-dessous).</p>
+      <ol type="1">
+      <li>donner le périmètre (المحيط) du cercle $C$</li>
+      <li>Déduire la longueur de l’arc $hat(II’)$ , $hat(IJ)$ et
+      $hat(IJ’)$
+      <!-- 3. Déduire la longueur de $hat(IJ')$ et $hat(IJ)$ qui ne contient pas $I'$ --></li>
+      <li>soit $I$ l’origine des abscisses des points sur le cercle
+      donner les abscisses de $I , J , I’ ,J’$</li>
+      <li>combien des abscisses on a pour chaque points du cercle</li>
+      <li>donner une relation entre les les abscisses de points $I$ et
+      le nombre des tours $k$</li>
+      </ol>
+      <!-- 3. ,, $quad$,, la longueur de l'arc $hat(IJ)$ -->
+      <p><br/></p>
+      <div id="ggb2" class="ggb">
+
+      </div>
+      <script>
+      var id = "ggb2";
+      params.filename = "./images/Enroulement de la droite autour du cercle trigonométrique.ggb"
+      var applet = new GGBApplet(params, true);
+          applet.setHTML5Codebase('GeoGebra/HTML5/5.0/webSimple/');
+          applet.inject(id);
+      </script>
+      <p><br/></p>
+      <h4 id="def">définition</h4>
+      <p>le cercle trigonométrique:</p>
+      <ul>
+      <li>son centre est $O$</li>
+      <li>son rayon est $r = 1 ("unité")$</li>
+      <li>orienté positif (عكس عقارب الساعة ).</li>
+      <li>muni d’un origine $I$</li>
+      </ul>
+      <!-- - lié a un repère orthonormé direct $(O, veci ,vecj)$ -->
+      <p>Tout point $M$ de cercle trigonométrique s’associe par à un
+      nombre réel s’appelle <strong>abscisse curviligne</strong> du
+      point et on écrit $M(x)$ .</p>
+      <h4 id="remarque">remarque</h4>
+      <ul>
+      <li>Tout point du cercle trigonométrique admet une
+      <strong>infinité</strong> d’abscisses curvilignes.</li>
+      <li>si $x$ et $x’$ des abscisses de même point alors $x’ = x + 2k
+      pi // k in ZZ$ et on écrit $x’ -= x [2 pi]$ (se lit <mark>$x’$ est
+      congru a $x$ modulo $2 pi$</mark> )</li>
+      <li>l’abscisse curviligne appartient à l’intervalle $]-pi ; pi]$
+      et s’appelle abscisse <mark>curviligne principale</mark> .</li>
+      </ul>
+      <h4 id="exemple-1">Exemple 1</h4>
+      <p>Soit le cercle trigonométrique $C$ on a :</p>
+      <ul>
+      <li><p>$I(…)$</p></li>
+      <li><p>$J(…)$</p></li>
+      <li><p>$I’(…. )$</p></li>
+      <li><p>$J’(….)$</p></li>
+      <li><p>pour le point $I$ on a : $I(…)$ $I(….. )$ $I(…)$ $I(… )$
+      $I(… )$ $I(-2pi )$</p></li>
+      <li><p>on a $…. in ]-pi ; pi]$ alors $…. $ est abscisse curviligne
+      principale de $I$</p></li>
+      </ul>
+      <h4 id="exemple-2">Exemple 2</h4>
+      <p>Déterminer l’abscisse curviligne principale du point
+      $A((25pi)/4)$</p>
+      <h4 id="app">application</h4>
+      <p>Déterminer les abscisses curvilignes principales des points
+      suivants :</p>
+      <ul>
+      <li>$A((7pi)/2)$</li>
+      <li>$B((67pi)/4)$</li>
+      <li>$C((267pi)/6)$</li>
+      <li>$D((-11pi)/3)$</li>
+      <li>$E(1002pi)$</li>
+      <li>$F(13pi)$</li>
+      </ul>
+      <h2 id="angles-orientés">Angles orientés</h2>
+      <h4 id="def-1">définition</h4>
+      <ul>
+      <li>la mesure d’un angle $theta$ en <strong>radian</strong>
+      ($rad$) est La longueur de l’arc $S$ intercepte par l’angle
+      $theta$ sur le rayon du cercle $r$</li>
+      </ul>
+      <figure>
+      <img src="./images/drawing.svg" width="300" alt="alt text" />
+      <figcaption aria-hidden="true">alt text</figcaption>
+      </figure>
+      <p><em>$theta$ en radian $= s/r$</em></p>
+      <ul>
+      <li>Si $r=1$ on a : <mark>mesure en radian = abscisse
+      curviligne</mark></li>
+      </ul>
+      <!-- - la mesure d’un angle plat en radian est égale à $pi quad rad$. -->
+      <!-- - Il existe une autre unité de mesure des angles s’appelle le grade et se note -->
+      <!--   $gr$ telle que la mesure d’un angle plat en grade est égale à $200gr$. -->
+      <ul>
+      <li>Il existe une autre unité de mesure des angles s’appelle le
+      <strong>grade</strong> $gr$</li>
+      <li>on a : <mark>$180^o = pi quad rad = 200 quad gr $</mark></li>
+      </ul>
+      <p><br/></p>
+      <div id="ggb4" class="ggb">
+
+      </div>
+      <script>
+      var id = "ggb4";
+      params.filename = "./images/degre1.ggb"
+      var applet = new GGBApplet(params, true);
+          applet.setHTML5Codebase('GeoGebra/HTML5/5.0/webSimple/');
+          applet.inject(id);
+      </script>
+      <p><br/></p>
+      <h4 id="remarque-1">remarque</h4>
+      <p><span class="wow animated infinite fadeIn">⚠️</span> vérifier
+      l’unité dans le calculatrice avant calculer : $r$ pour $rad$ et
+      $d$ pour $degré$</p>
+      <p><a href="./images/radians.jpg"
+      data-lightbox="image-5">meme</a></p>
+      <h4 id="app-1">application</h4>
+      <ol type="1">
+      <li>Compléter le tableau suivant :</li>
+      </ol>
+      <table>
+      <thead>
+      <tr class="header">
+      <th>Mesure en degré</th>
+      <th>Mesure de l’angle en radian</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="odd">
+      <td>$180^o$</td>
+      <td>$pi $</td>
+      </tr>
+      <tr class="even">
+      <td>$60^o$</td>
+      <td>……..</td>
+      </tr>
+      <tr class="odd">
+      <td>………..</td>
+      <td>$pi/2$</td>
+      </tr>
+      <tr class="even">
+      <td>$45^o$</td>
+      <td>………</td>
+      </tr>
+      <tr class="odd">
+      <td>………..</td>
+      <td>$pi$</td>
+      </tr>
+      <tr class="even">
+      <td>$30^o$</td>
+      <td>………</td>
+      </tr>
+      <tr class="odd">
+      <td>………..</td>
+      <td>$( 3pi )/2$</td>
+      </tr>
+      <tr class="even">
+      <td>………..</td>
+      <td>$1$</td>
+      </tr>
+      </tbody>
+      </table>
+      <ol start="2" type="1">
+      <li>Placer $A(pi/6)$; $B(pi/4)$ ; $C(pi/3)$ ; $D((13pi)/2)$ sur le
+      cercle trigonométrique</li>
+      </ol>
+      <h4 id="remarque-2">remarque</h4>
+      <p><a href="./images/3.svg"
+      data-lightbox="image-4">remarque</a></p>
+      <h4 id="def-2">définition</h4>
+      <p>soit $A$ , $B$ et $O$ trois points distincts</p>
+      <ul>
+      <li>Les deux angles $hat(AOB)$ et ̂$hat(BOA)$ sont des angles
+      géométriques de même mesure, toujours <strong>positive</strong> :
+      $hat(AOB)$ = $hat(BOA)$ ;</li>
+      <li>L’angle $hat( vec(OA) , vec(OB))$ est un <mark>angle
+      orienté</mark> (On tourne de $vec(OA)$ vers $vec(OB)$ )</li>
+      <li>la mesure de $hat(vec(OA) ; vec(OB))$ est noté : $bar(vec(OA)
+      ; vec(OB))$</li>
+      </ul>
+      <figure>
+      <img src="./images/1.svg" alt="alt text" />
+      <figcaption aria-hidden="true">alt text</figcaption>
+      </figure>
+      <p><em>$hat(AOB)$ = $hat(BOA) = alpha$</em></p>
+      <figure>
+      <img src="./images/2.svg" alt="alt text" />
+      <figcaption aria-hidden="true">alt text</figcaption>
+      </figure>
+      <p>$bar(vec(OA) ,vec(OB)) = alpha$ $ quad;quad $ $bar(vec(OB)
+      ,vec(OA)) = - alpha$ $ quad;quad $ $bar(vec(OA) ,vec(OB)) = -
+      bar(vec(OB) ,vec(OA))$</p>
+      <h4 id="remarque-3">remarque</h4>
+      <p>Soit $x$ la mesure d’un angle orienté $hat(vec(u) ,
+      vec(v))$</p>
+      <ul>
+      <li>Si $x’= x+ 2k pi // k in ZZ$ alors $x’$ est aussi une mesure
+      de $hat(vec(u) , vec(v))$ et on a : $x’ -= x [2pi]$</li>
+      <li>Si $x in ]-pi ; pi]$ alors $x$ est la mesure principale de
+      l’angle orienté $hat(vec(u) , vec(v))$</li>
+      </ul>
+      <h4 id="exemple">Exemple</h4>
+      <p>Déterminer la mesure principale de l’angle $(25pi)/4$</p>
+      <h4 id="propriété">propriété</h4>
+      <p>soit $vecu$ , $vecv$ et $vecw$ trois vecteurs:</p>
+      <p>$bar(vec(u) , vec(v)) -= 2k pi + alpha [2pi] -= alpha [2pi]
+      $</p>
+      <p>$( bar(vec(u) , vec(v)) ) -= - (bar(vec(v) , vec(u)))
+      [2pi]$</p>
+      <p>$bar(vec(u) , vec(v)) + bar(vec(v) , vec(w)) -= bar(vec(u) ,
+      vec(w)) [2pi]$ <del>$ -&gt; color(red)("Relation de
+      Chasles")$</del></p>
+      <p>$$</p>
+      <h4 id="application">application</h4>
+      <p>soit la figure suivant :</p>
+      <object id="my-svg" type="image/svg+xml" data="./images/geogebra-export.svg">
+      </object>
+      <script>
+      new Vivus('my-svg', { duration: 2000 });
+      </script>
+      <p>Déterminer $bar(vec(u) , vec(w))$ et $bar(vec(w) , vec(u))$</p>
+      <h4 id="activité-1">activité</h4>
+      <p>soit $vecu$ , $vecv$ deux vecteurs avec $bar(vec(u) , vec(v))
+      -= alpha [2pi]$ et $a, b in RR$:</p>
+      <p>donner les mesures des angles suivants en fonctions de $alpha$
+      :</p>
+      <ul>
+      <li>$bar(- vec(u) , vec(v))$</li>
+      <li>$bar(- vec(u) , - vec(v))$</li>
+      <li>$bar(a vec(u) , b vec(v))$</li>
+      </ul>
+      <h4 id="application-1">application</h4>
+      <p>placer les points suivants sur le cercle trigonométrique :
+      <br/></p>
+      <div id="ggb3" class="ggb">
+
+      </div>
+      <script>
+      var id = "ggb3";
+      params.filename = "./images/Savoir placer un point sur le cercle trigonométrique.ggb"
+      var applet = new GGBApplet(params, true);
+          applet.setHTML5Codebase('GeoGebra/HTML5/5.0/webSimple/');
+          applet.inject(id);
+      </script>
+      <p><br/></p>
+    </section>
+    <br>
+    <br>
+    <script>
+      var coll = document.getElementById("clock");
+        coll.addEventListener("click", function() {
+            var content = document.getElementById("TOC")
+            if (content.style.display === "block") {
+              content.style.display = "none";
+            } else {
+              content.style.display = "block";
+            }
+          });
+    </script>
+    <style>
+      #TOC ul{
+        list-style-type: symbols;
+      }
+      .mermaid{ text-align: center; width:100% !important; }
+    </style>
+    <script type="module">
+      document.querySelectorAll("pre").forEach(function (el) {
+      if (!el.className) return;
+      el.innerHTML = el.firstElementChild.innerHTML;
+      // el.firstElementChild.classList.add( el.className);
+      // el.removeAttribute('class');
+      });
+    </script>
+    <script src="scripts/mermaid/mermaid.min.js"></script>
+    <script>
+      mermaid.initialize({
+      startOnLoad: true,
+        'theme': 'neutral',
+          'themeVariables': {
+      'fontSize': '1em',
+                'primaryColor': '#BB2528',
+      'primaryTextColor': '#fff',
+      'primaryBorderColor': '#7C0000',
+      'lineColor': '#F8B229',
+      'secondaryColor': '#006100',
+      'tertiaryColor': '#fff'
+          },
+      flowchart:{
+                    useMaxWidth:false,
+                }
+      });
+    </script>
+    <!-- zoom js -->
+    <!-- <script src="https://lab.hakim.se/zoom-js/js/zoom.js"></script> -->
+    <!-- <script> -->
+    <!--   document.querySelector( 'body' ).addEventListener( 'click', function( event ) { -->
+    <!--   	event.preventDefault(); -->
+    <!--   	zoom.to({ element: event.target }); -->
+    <!--   } ); -->
+    <!-- </script> -->
+    <!-- <script> -->
+    <!--   animations=["zoomIn","zoomInDown","zoomInLeft","zoomInRight","zoomInUp", "fadeIn","fadeInDown","fadeInLeft","fadeInRight","fadeInUp"] ; -->
+    <!---->
+    <!--           const random = Math.floor(Math.random() * animations.length); -->
+    <!--         // animations = ["shake"]; -->
+    <!--           to_animate= document.querySelectorAll("p , img , h1,h2,h3,h4 , mjx-math , li ") -->
+    <!--       // alert(animations[random]) -->
+    <!--           for (i=0; i < to_animate.length; i++) { -->
+    <!---->
+    <!--                  // to_animate[i].classList.add("wow", animations[random]); -->
+    <!--                  to_animate[i].classList.add("wow",  "zoomIn"); -->
+    <!--                        to_animate[i].setAttribute("data-wow-iteration", "1"); -->
+    <!--                        to_animate[i].setAttribute("data-wow-duration", "1s"); -->
+    <!--           } -->
+    <!-- </script> -->
+    <!-- <script circle-outline="disable" pause-animation="disable" size="10"  color="#ffffff" src='scripts/cursor.js'></script> -->
+    <script src="scripts/jquery-3.6.0.min.js"></script>
+    <script src="scripts/markerPen.js"></script>
+    <!-- <script src="scripts/wow.js"></script> -->
+    <script>
+      /// highlight on mousehover
+        // function addStyleString(str) {
+        // var node = document.createElement('style');
+        // node.innerHTML = str;
+        // document.body.appendChild(node);
+        // }
+        //
+        // addStyleString('.-sitemap-select-item-hover{outline:2px solid green!important}.-sitemap-select-item-hover,.-sitemap-select-item-hover *{background-color:rgba(0,213,0,.2)!important;background:rgba(0,213,0,.2)!important}.-sitemap-select-item-selected{outline:2px solid #c70000!important}.-sitemap-select-item-selected,.-sitemap-select-item-selected *{background-color:rgba(213,0,0,.2)!important;background:rgba(213,0,0,.2)!important}')
+        //
+        // function mouseover(event) {
+        // event.target.classList.add('-sitemap-select-item-hover')
+        // }
+        // function mouseout(event) {
+        // event.target.classList.remove('-sitemap-select-item-hover')
+        // }
+        //               elements_p= document.querySelectorAll("*")
+        //
+        //         for (i=0; i < elements_p.length; i++) {
+        // elements_p[i].addEventListener('mouseover', mouseover, { capture: true })
+        // elements_p[i].addEventListener('mouseout', mouseout, { capture: true })
+        // }
+    </script>
+    <script>
+      document.addEventListener('mouseup', highlightSelection);
+
+      function highlightSelection() {
+        var userSelection = window.getSelection().getRangeAt(0);
+        var safeRanges = getSafeRanges(userSelection);
+        for (var i = 0; i < safeRanges.length; i++) {
+      highlightRange(safeRanges[i]);
+        }
+      }
+
+      function highlightRange(range) {
+        var newNode = document.createElement("div");
+        newNode.setAttribute(
+      "style",
+      "background-color: yellow; display: inline;"
+        );
+        range.surroundContents(newNode);
+      }
+
+      function getSafeRanges(dangerous) {
+        var a = dangerous.commonAncestorContainer;
+        // Starts -- Work inward from the start, selecting the largest safe range
+        var s = new Array(0), rs = new Array(0);
+        if (dangerous.startContainer != a) {
+      for (var i = dangerous.startContainer; i != a; i = i.parentNode) {
+        s.push(i);
+      }
+        }
+        if (s.length > 0) {
+      for (var i = 0; i < s.length; i++) {
+        var xs = document.createRange();
+        if (i) {
+          xs.setStartAfter(s[i - 1]);
+          xs.setEndAfter(s[i].lastChild);
+        } else {
+          xs.setStart(s[i], dangerous.startOffset);
+          xs.setEndAfter((s[i].nodeType == Node.TEXT_NODE) ? s[i] : s[i].lastChild);
+        }
+        rs.push(xs);
+      }
+        }
+
+        // Ends -- basically the same code reversed
+        var e = new Array(0), re = new Array(0);
+        if (dangerous.endContainer != a) {
+      for (var i = dangerous.endContainer; i != a; i = i.parentNode) {
+        e.push(i);
+      }
+        }
+        if (e.length > 0) {
+      for (var i = 0; i < e.length; i++) {
+        var xe = document.createRange();
+        if (i) {
+          xe.setStartBefore(e[i].firstChild);
+          xe.setEndBefore(e[i - 1]);
+        } else {
+          xe.setStartBefore((e[i].nodeType == Node.TEXT_NODE) ? e[i] : e[i].firstChild);
+          xe.setEnd(e[i], dangerous.endOffset);
+        }
+        re.unshift(xe);
+      }
+        }
+
+        // Middle -- the uncaptured middle
+        if ((s.length > 0) && (e.length > 0)) {
+      var xm = document.createRange();
+      xm.setStartAfter(s[s.length - 1]);
+      xm.setEndBefore(e[e.length - 1]);
+        } else {
+      return [dangerous];
+        }
+
+        // Concat
+        rs.push(xm);
+        response = rs.concat(re);
+
+        // Send to Console
+        return response;
+      }
+
+
+        //invokes functions as soon as window loads
+        window.onload = function(){
+        	time();
+        	setInterval(function(){
+        		time();
+        	}, 1000);
+        };
+
+
+        //gets current time and changes html to reflect it
+        function time(){
+        	var date = new Date(),
+        		hours = date.getHours(),
+        		minutes = date.getMinutes(),
+        		seconds = date.getSeconds();
+
+        	//make clock a 12 hour clock instead of 24 hour clock
+        	hours = (hours > 12) ? (hours - 12) : hours;
+
+        	//invokes function to make sure number has at least two digits
+        	hours = addZero(hours);
+        	minutes = addZero(minutes);
+        	seconds = addZero(seconds);
+
+        	//changes the html to match results
+        	document.getElementsByClassName('hours')[0].innerHTML = hours;
+        	document.getElementsByClassName('minutes')[0].innerHTML = minutes;
+        	document.getElementsByClassName('seconds')[0].innerHTML = seconds;
+
+        }
+
+        //turns single digit numbers to two digit numbers by placing a zero in front
+        function addZero (val){
+        	return (val <= 9) ? ("0" + val) : val;
+        }
+
+        //lights up either am or pm on clock
+
+        //lights up what day of the week it is
+        function whatDay(){
+        	var date = new Date(),
+        		currentDay = date.getDay(),
+        		days = {
+        			0: "sunday",
+        			1: "monday",
+        			2: "tuesday",
+        			3: "wednesday",
+        			4: "thursday",
+        			5: "friday",
+        			6: "saturday"
+        		};
+        	//not quite right.  doesnt remove light on Saturday to Sunday switch due to days array
+        	// currentDayClass.add("light-on");
+        	// previousDayClass.remove("light-on");
+
+        }
+    </script>
+    <script src="scripts/mark.js"></script>
+    <script>
+      // todo
+        var instance = new Mark(document.querySelector("p"));
+        instance.mark("inéquation", {
+            "separateWordSearch": false
+        });
+    </script>
+    <script>
+      var wow = new WOW(
+                    {
+            boxClass:     'wow',      // animated element css class (default is wow)
+            animateClass: 'animated', // animation css class (default is animated)
+            offset:       50,          // distance to the element when triggering the animation (default is 0)
+            mobile:       false,       // trigger animations on mobile devices (default is true)
+            live:         true,       // act on asynchronously loaded content (default is true)
+            callback:     function(box) {
+                  // box.classList.remove("animated")
+                  // the callback is fired every time an animation is started
+                  // the argument that is passed in is the DOM node being animated
+            },
+            scrollContainer: null // optional scroll container selector, otherwise use window
+                    }
+                  );
+            wow.init();
+            $(document).ready(function() {
+            $.markerPen({
+            "color":"red",
+            "stroke":3,
+            "opacity":".5"
+            });
+        //   $('body').circursor({
+        //
+        //   // size of cursor 1
+        //   size1: "0",
+        //
+        //   // size of cursor 2
+        //   size2: "30px",
+        //
+        //   // width of circle cursor
+        //   width: "10px",
+        //
+        //   // color of circle cursor
+        //   color: "red",
+        //
+        //   // duration of animation
+        //   duration: "200",
+        //
+        //   // easing effect
+        //   easing: "easeOutQuint"
+        //
+        // });
+            });
+    </script>
+    <script type="text/javascript">
+      // If Javascript is enablee will gray out all text in elements of
+      // class 'spoiler', allowing the user to click the grayed-out block to make
+      // it visible.
+      var h4s = document.querySelectorAll("h4");
+      for (let element of h4s) {
+        text = element.innerText || element.textContent;
+        title = text.split(" ")[0].toLowerCase()
+        // console.log(title)
+        img = "";
+        switch (title) {
+        case 'définition':
+        case 'définitions':
+        case 'propriété':
+        case 'propriétés':
+            img = "./icons/drawing.svg";
+          break;
+        case 'activité':
+            img = "./icons/drawing1.svg";
+          break;
+        case 'exemple':
+        case 'exemples':
+            img = "./icons/drawing3.svg";
+          break;
+        case 'remarque':
+        case 'remarques':
+            img = "./icons/drawing2.svg";
+          break;
+        case 'application':
+        case 'exercice':
+        case 'exercices':
+            img = "./icons/drawing4.svg";
+          break;
+        default:
+            img = "./icons/drawing.svg";
+      }
+        element.innerHTML = `<img src="${img}" style=" margin-right: 5px ;height: 20px; width: 30px;display: inline">` + text.charAt(0).toUpperCase() + text.slice(1);
+      }
+
+
+      var spoilers = document.querySelectorAll("del ,de");
+      for (let spoiler of spoilers) {
+        spoiler.classList.add('spoiler-hidden');
+        spoiler.onclick = function() { this.classList.remove('spoiler-hidden'); }
+      }
+
+            document.body.style.zoom = "200%";
+    </script>
+    <script src="scripts/lightbox.js"></script>
+    <link href="styles/lightbox.css" rel="stylesheet" />
+    <script>
+      lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true,
+        'positionFromTop': 0,
+        'showImageNumberLabel': false,
+        'disableScrolling': false
+
+      })
+    </script>
+  </body>
+</html>
