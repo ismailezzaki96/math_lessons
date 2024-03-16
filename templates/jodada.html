@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html dir="auto">
+  <head>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <meta charset="utf-8"/>
+    <title>$title$</title>
+    <!-- script -->
+    <!-- <script type="text/javascript" id="MathJax-script" src="scripts/startup.js"></script> -->
+    <!-- <script id="MathJax-script" async src="scripts/mathjax/tex-chtml.js"></script> -->
+    <style>
+      table{
+       font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+       border-collapse: collapse;
+       width: 100%;
+      }
+
+      td,  th {
+       border: 1px solid ;
+       padding: 8px;
+      }
+
+      tr:nth-child(even){background-color: #f2f2f2;}
+
+      tr:hover {background-color: #ddd;}
+
+      th {
+       padding-top: 12px;
+       padding-bottom: 12px;
+      }
+
+
+
+      .flex-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* grid-template-rows: repeat(auto-fill, 120px); */
+        /* grid-row-gap: .5em; */
+        /* grid-column-gap: 1em; */
+      }
+      .flex-container section {
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 5px;
+        /* text-align: center; */
+
+      }
+    </style>
+  </head>
+  <!-- <body class="$size$ libertinus"> -->
+  <body class="$size$ ">
+    <section class="sheet padding-5mm">
+      <!-- DAY OF THE WEEK -->
+      <h1>$title$
+      </h1>
+      $body$
+    </section>
+    <!-- zoom js -->
+    <!-- <script src="https://lab.hakim.se/zoom-js/js/zoom.js"></script> -->
+    <!-- <script> -->
+    <!--   document.querySelector( 'body' ).addEventListener( 'click', function( event ) { -->
+    <!--   	event.preventDefault(); -->
+    <!--   	zoom.to({ element: event.target }); -->
+    <!--   } ); -->
+    <!-- </script> -->
+  </body>
+</html>
