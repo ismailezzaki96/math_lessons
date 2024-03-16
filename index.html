@@ -7,25 +7,46 @@
     <!-- script -->
     <script>
       MathJax = {
-      loader: {
-      load: ["input/asciimath", "output/chtml"],
-      },
-      styles: {
-      '.mjx-chtml': { padding: '0.1em 0.1em' }, //new names of the selectors, working!
-      '.MJXc-display, .mjx-chtml': { color: 'green' },
-      'mjx-mover': { color: 'green' }
-      },
-      asciimath: {
-      delimiters: [
-      ["$", "$"]
-      ],
-      },
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
       };
     </script>
+    <script>
+      // Mathjax configuration
+        MathJax = {
+        loader: {
+          load: ['input/asciimath', 'output/chtml', 'ui/menu', "[tex]/html"],
+        },
+        styles: {
+        '.mjx-chtml': { padding: '0.1em 0.1em' }, //new names of the selectors, working!
+        '.MJXc-display, .mjx-chtml': { color: 'green' },
+        'mjx-mover': { color: 'green' }
+        },
+          tex: {
+      packages: { "[+]": ["html"] },
+      inlineMath: [
+        ["$$", "$$"]
+      ],
+      displayMath: [
+        ["\\[", "\\]"]
+      ]
+          },
+        asciimath: {
+              fixphi: true,              // true for TeX mapping, false for unicode mapping
+            displaystyle: true,        // true for displaystyle typesetting, false for in-line
+            decimalsign: '.',           // character to use for decimal separator
+        delimiters: [
+        ["$", "$"]
+        ],
+        },
+        };
+    </script>
     <!-- <script type="text/javascript" id="MathJax-script" src="scripts/startup.js"></script> -->
-    <!-- <script id="MathJax-script" async src="scripts/mathjax/tex-chtml.js"></script> -->
+    <script id="MathJax-script" async src="scripts/mathjax/tex-chtml.js"></script>
     <script src="GeoGebra/deployggb.js"></script>
-    <script src="scripts/ASCIIMathML.js"></script>
+    <!-- <script src="scripts/ASCIIMathML.js"></script> -->
     <script src=" https://cdn.jsdelivr.net/npm/vivus@0.4.6/dist/vivus.min.js "></script>
     <script>
       var params = {

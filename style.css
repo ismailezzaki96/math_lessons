@@ -236,7 +236,7 @@ figcaption {
 }
 /* Make default font-size 1rem and add smooth scrolling to anchors */
 html {
-  font-size: 1rem;
+  font-size: 2rem;
 }
 body {
   line-height: 1.8;
@@ -852,6 +852,7 @@ h4::first-letter {
 }
 .clock {
   font-family: 'digital-7', sans-serif;
+  font-size: 2vw;
   font-weight: bolder;
     background-color: whitesmoke; 
   position: fixed;
