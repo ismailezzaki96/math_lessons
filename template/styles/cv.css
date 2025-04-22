@@ -1,0 +1,201 @@
+/*
+ * Copyright 2013 Christophe-Marie Duquesne <chmd@chmd.fr>
+ *
+ * CSS for making a resume with pandoc. Inspired by moderncv.
+ *
+ * This CSS document is delivered to you under the CC BY-SA 3.0 License.
+ * https://creativecommons.org/licenses/by-sa/3.0/deed.en_US
+ */
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/LM-regular.woff2') format('woff2'),
+    url('./fonts/LM-regular.woff') format('woff'),
+    url('./fonts/LM-regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/LM-italic.woff2') format('woff2'),
+    url('./fonts/LM-italic.woff') format('woff'),
+    url('./fonts/LM-italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./fonts/LM-bold.woff2') format('woff2'),
+    url('./fonts/LM-bold.woff') format('woff'),
+    url('./fonts/LM-bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./fonts/LM-bold-italic.woff2') format('woff2'),
+    url('./fonts/LM-bold-italic.woff') format('woff'),
+    url('./fonts/LM-bold-italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Libertinus';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/Libertinus-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Libertinus';
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/Libertinus-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Libertinus';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./fonts/Libertinus-bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Libertinus';
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./fonts/Libertinus-bold-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Libertinus';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./fonts/Libertinus-semibold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Libertinus';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./fonts/Libertinus-semibold-italic.woff2') format('woff2');
+}
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,500i,700,700i");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i");
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;600&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap");
+@import url(//fonts.googleapis.com/css?family=Inconsolata:400,700|Montserrat:700);
+/* Whole document */
+body {
+    width: 800px;
+line-height: 1.45;
+    margin: auto;
+/* font-family: Garamond,"Times New Roman", serif; */
+    font-family: "Raleway";
+    /* font-family: "Libertinus"; */
+    text-rendering: optimizeLegibility;
+/* font: 16px/1.5 Inconsolata, sans-serif; */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Title of the resume */
+h1 {
+    font-size: 45px;
+    font-weight: unset;
+    margin:0px;
+    text-align: center
+        /* font-family: 'Roboto', sans-serif; */
+}
+
+/* Titles of categories */
+
+h2 {
+   color:  #131A28;
+   width: 100%;
+   border-bottom: 1px solid ;
+   margin: 10px 0 20px;
+        /* font-family: 'Roboto', sans-serif; */
+}
+
+/* There is a bar just before each category */
+
+/* Definitions */
+dt {
+    float: left;
+    clear: left;
+    /*font-weight: bold;*/
+}
+dd {
+    margin-left: 11%;
+    margin-bottom: 15px;
+}
+p {
+    margin-top:0;
+    margin-bottom:7px;
+
+}
+
+/* Blockquotes */
+blockquote {
+    text-align: center
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: blue;
+}
+/* visited link */
+a:visited {
+  color: blue;
+}
+
+code {
+padding: .25rem;
+  background-color: #eee;
+}
+
+@media print {
+  body {
+    top: initial;
+    bottom: initial;
+    transform: none;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0; }
+  @page {
+    size: letter portrait;
+    margin: 0.2in; } }
+
+@media print {
+  h2 {
+    page-break-before: auto;
+  }
+  h3, h4 {
+    page-break-after: avoid;
+  }
+  pre, blockquote {
+    page-break-inside: avoid;
+  }
+}

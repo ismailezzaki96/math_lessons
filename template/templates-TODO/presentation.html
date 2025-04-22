@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Dr. Matthieu R Bloch">
+    <title>$title$</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!--<link-->
+    <!--  rel="stylesheet"-->
+    <!--  href="https://unpkg.com/reveal.js@5.1.0//dist/reset.css"-->
+    <!--/>-->
+    <link
+      rel="stylesheet"
+      href="./templates/styles/reveal.css"
+    />
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+
+  <link rel="stylesheet" href="templates/styles/white_contrast_compact_verbatim_headers.css" id="theme">
+
+  <!--[if lt IE 9]>
+  <script src="../../assets/reveal.js-alex/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <style type="text/css">
+  p { text-align: start; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+$body$
+    </div>
+  </div>
+
+    <script src="templates/scripts/head.min.js"></script>
+    <script src="templates/scripts/reveal.js"></script>
+
+    <!-- reveal.js plugins -->
+    <!--<script src="https://unpkg.com/reveal.js@5.1.0//plugin/notes/notes.js"></script>-->
+    <!--<script src="https://unpkg.com/reveal.js@5.1.0//plugin/search/search.js"></script>-->
+    <!--<script src="https://unpkg.com/reveal.js@5.1.0//plugin/zoom/zoom.js"></script>-->
+    <!--<script src="https://unpkg.com/reveal.js@5.1.0//plugin/math/math.js"></script>-->
+
+    <style>
+
+del {
+  /* text-decoration: underline; */
+  /*  font-weight: bold; */
+  text-decoration: none;
+}
+.spoiler-hidden {
+  filter: blur(20px);
+  background-color: gray;
+  cursor: var(--cursorPointer);
+
+}
+    </style>
+
+    <script>
+
+      var spoilers = document.querySelectorAll("del ,de");
+      for (let spoiler of spoilers) {
+        spoiler.classList.add("spoiler-hidden");
+        spoiler.onclick = function () {
+          this.classList.remove("spoiler-hidden");
+        };
+      };
+
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        slideNumber:"c/t",
+
+  controlsLayout: 'bottom-right',
+        // Push each slide change to the browser history
+        history: false,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+
+  // Loop the presentation
+  loop: false,
+
+  // Change the presentation direction to be RTL
+  rtl: $rtl$,
+
+ hash: true,
+  // Disables the default reveal.js slide layout (scaling and centering)
+  // so that you can use custom CSS layout
+  disableLayout: false,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Display a presentation progress bar
+  progress: false,
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        //width: 1600,
+        //height: 1000,
+        // Factor of the display size that should remain empty around the content
+        margin: 0.05,
+    width: "100%",
+    height: "100%",
+    //margin: 0,
+    minScale: 1,
+    maxScale: 1
+      });
+    </script>
+</body>

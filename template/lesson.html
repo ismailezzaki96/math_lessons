@@ -1,0 +1,622 @@
+<!doctype html>
+<html dir="auto">
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>$title$</title>
+    <script>
+      // Mathjax configuration
+      MathJax = {
+        options: {
+          lazyMargin: "200px",
+          lazyAlwaysTypeset: null,
+          // processHtmlClass: 'mermaid',
+        },
+        loader: {
+          load: [
+            "[tex]/bbox",
+            "input/asciimath",
+            "output/chtml",
+            "ui/menu",
+            "ui/lazy",
+            "[tex]/html",
+          ],
+        },
+        // style for mathjax
+        styles: { ".MathJax": { "font-size": "10%" } },
+        tex: {
+          packages: { "[+]": ["html", "bbox"] },
+          inlineMath: [["$$$$", "$$$$"]],
+          displayMath: [["\\[", "\\]"]],
+        },
+        asciimath: {
+          fixphi: true, // true for TeX mapping, false for unicode mapping
+          displaystyle: true, // true for displaystyle typesetting, false for in-line
+          decimalsign: ".", // character to use for decimal separator
+          delimiters: [["$$", "$$"]],
+        },
+      };
+    </script>
+    <!-- <script type="text/javascript" id="MathJax-script" src="scripts/startup.js"></script> -->
+    <script
+      id="MathJax-script"
+      async
+      src="template/scripts/mathjax/tex-chtml.js"
+    ></script>
+    <script src="template/GeoGebra/deployggb.js"></script>
+    <!-- <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <!-- <script src="scripts/ASCIIMathML.js"></script> -->
+    <!-- <script src=" https://cdn.jsdelivr.net/npm/vivus@0.4.6/dist/vivus.min.js "></script> -->
+    <script>
+      var params = {
+        //width: 800,
+        //height: 400,
+        showMenuBar: false,
+        showAlgebraInput: false,
+        showToolBar: false,
+        showToolBarHelp: false,
+        showResetIcon: false,
+        enableLabelDrags: false,
+        enableShiftDragZoom: false,
+        enableRightClick: false,
+        errorDialogsActive: false,
+        useBrowserForJS: true,
+        allowStyleBar: false,
+        preventFocus: true,
+        showZoomButtons: false,
+        capturingThreshold: 3,
+        // add code here to run when the applet starts
+        appletOnLoad: function (api) {
+          /* api.evalCommand('Segment((1,2),(3,4))');*/
+        },
+        showFullscreenButton: true,
+        scale: 1,
+        disableAutoScale: false,
+        allowUpscale: false,
+        clickToLoad: false,
+        appName: "classic",
+        buttonRounding: 0.7,
+        buttonShadows: false,
+        language: "en",
+        // use this instead of ggbBase64 to load a .ggb file
+      };
+    </script>
+    <!-- style -->
+    <!-- <link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css">-->
+    <!-- <link rel="stylesheet" href="styles/cursor.css"/> -->
+    <link rel="stylesheet" href="template/styles/style.css" />
+    <!-- <link rel="stylesheet" href="styles/animate.css"> -->
+<link rel="stylesheet" href="template/fontawesome/css/all.min.css">
+    <style>
+      @page {
+          size: $size$ margin: 0cm;
+          }
+    </style>
+  </head>
+  <body class="$size$">
+    <!-- <div class="student fiche"> -->
+    <!--   <label for="pet-select">Please choose a class:</label> -->
+    <!--   <select value="pets" id="pet-select"> -->
+    <!--     <option value="">--Please choose a class--</option> -->
+    <!--     <option value="dog">Dog</option> -->
+    <!--     <option value="cat">Cat</option> -->
+    <!--     <option value="hamster">Hamster</option> -->
+    <!--     <option value="parrot">Parrot</option> -->
+    <!--     <option value="spider">Spider</option> -->
+    <!--     <option value="goldfish">Goldfish</option> -->
+    <!--   </select> -->
+    <!-- </div> -->
+    <section class="sheet padding-5mm">
+      <div class="student">
+        <button onclick='window.open( document.title+".pdf")' type="button">
+          le cours pdf
+        </button>
+        <button onclick='window.open( "serie.pdf")' type="button">
+          serie des exercies pdf
+        </button>
+        <button onclick='window.open( "resume.pdf")' type="button">
+          Résumé pdf
+        </button>
+        <button id="fiche-button">fiche</button>
+      </div>
+      <div class="clock" id="clock">
+        <span class="hours"></span>
+        :
+        <span class="minutes"></span>
+        <!-- : -->
+        <!-- <span class="seconds"></span> -->
+      </div>
+      <div id="TOC" style="display: none">$toc$</div>
+
+      <h1>$title$</h1>
+      $body$
+    </section>
+    <br />
+    <br />
+    <script>
+      var coll = document.getElementById("clock");
+      coll.addEventListener("click", function () {
+        var content = document.getElementById("TOC");
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    </script>
+    <style>
+      #TOC ul {
+        list-style-type: symbols;
+      }
+      .mermaid {
+        text-align: center;
+        width: 100% !important;
+      }
+    </style>
+    <script type="module">
+      document.querySelectorAll("pre").forEach(function (el) {
+        if (!el.className) return;
+        el.innerHTML = el.firstElementChild.innerHTML;
+        // el.firstElementChild.classList.add( el.className);
+        // el.removeAttribute('class');
+      });
+    </script>
+    <script src="template/scripts/mermaid/mermaid.min.js"></script>
+    <script>
+      mermaid.initialize({
+        legacyMathML: true,
+        startOnLoad: true,
+        theme: "neutral",
+        themeVariables: {
+          fontSize: "1em",
+          primaryColor: "#BB2528",
+          primaryTextColor: "#fff",
+          primaryBorderColor: "#7C0000",
+          lineColor: "#F8B229",
+          secondaryColor: "#006100",
+          tertiaryColor: "#fff",
+        },
+        flowchart: {
+          useMaxWidth: false,
+        },
+      });
+    </script>
+    <!-- zoom js -->
+    <!--<script src="https://lab.hakim.se/zoom-js/js/zoom.js"></script>-->
+    <!-- <script> -->
+    <!--   document.querySelector( 'body' ).addEventListener( 'click', function( event ) { -->
+    <!--   	event.preventDefault(); -->
+    <!--   	zoom.to({ element: event.target }); -->
+    <!--   } ); -->
+    <!-- </script> -->
+    <!-- <script> -->
+    <!--   animations=["zoomIn","zoomInDown","zoomInLeft","zoomInRight","zoomInUp", "fadeIn","fadeInDown","fadeInLeft","fadeInRight","fadeInUp"] ; -->
+    <!---->
+    <!--           const random = Math.floor(Math.random() * animations.length); -->
+    <!--         // animations = ["shake"]; -->
+    <!--           to_animate= document.querySelectorAll("figure , div, p , img , h1,h2,h3,h4 , mjx-math , li ") -->
+    <!--       // alert(animations[random]) -->
+    <!--           for (i=0; i < to_animate.length; i++) { -->
+    <!---->
+    <!--                  to_animate[i].classList.add("wow", animations[random]); -->
+    <!--                  // to_animate[i].classList.add("wow",  "zoomIn"); -->
+    <!--                        to_animate[i].setAttribute("data-wow-iteration", "1"); -->
+    <!--                        to_animate[i].setAttribute("data-wow-duration", "1s"); -->
+    <!--           } -->
+    <!-- </script> -->
+    <!-- <script circle-outline="disable" pause-animation="disable" size="10"  color="#ffffff" src='scripts/cursor.js'></script> -->
+    <script src="template/scripts/jquery-3.6.0.min.js"></script>
+    <script src="template/scripts/markerPen.js"></script>
+    <script src="template/scripts/wow.js"></script>
+    <script>
+      $$("h4").each(function () {
+        var $$set = $$();
+        $$set.push(this);
+
+        var nxt = this.nextSibling;
+        while (nxt) {
+          if (
+            !$$(nxt).is("h4") &&
+            !$$(nxt).is("h3") &&
+            !$$(nxt).is("h2") &&
+            !$$(nxt).is("h1") &&
+            !$$(nxt).is("h5") &&
+            !$$(nxt).is("h6")
+          ) {
+            $$set.push(nxt);
+            nxt = nxt.nextSibling;
+          } else break;
+        }
+        // add h4 to the set
+        $$set.wrapAll('<div class="callout" />');
+      });
+    </script>
+    <style>
+      .callout {
+        border: 1px solid #ccc;
+        border-left-color: #2780e3;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        background: #f9f9f9;
+        border-left: 5px solid;
+        border-radius: 0.25rem;
+        overflow-wrap: break-word;
+        padding-top: 0;
+      }
+
+      .callout h4 {
+        background-color: #e9f2fc;
+        margin-top: 0;
+        margin-bottom: 10px;
+        margin-right: -10px;
+        margin-left: -10px;
+        padding-left: 10px;
+      }
+    </style>
+    <script>
+      /// highlight on mousehover
+      // function addStyleString(str) {
+      // var node = document.createElement('style');
+      // node.innerHTML = str;
+      // document.body.appendChild(node);
+      // }
+      //
+      // addStyleString('.-sitemap-select-item-hover{outline:2px solid green!important}.-sitemap-select-item-hover,.-sitemap-select-item-hover *{background-color:rgba(0,213,0,.2)!important;background:rgba(0,213,0,.2)!important}.-sitemap-select-item-selected{outline:2px solid #c70000!important}.-sitemap-select-item-selected,.-sitemap-select-item-selected *{background-color:rgba(213,0,0,.2)!important;background:rgba(213,0,0,.2)!important}')
+      //
+      // function mouseover(event) {
+      // event.target.classList.add('-sitemap-select-item-hover')
+      // }
+      // function mouseout(event) {
+      // event.target.classList.remove('-sitemap-select-item-hover')
+      // }
+      //               elements_p= document.querySelectorAll("*")
+      //
+      //         for (i=0; i < elements_p.length; i++) {
+      // elements_p[i].addEventListener('mouseover', mouseover, { capture: true })
+      // elements_p[i].addEventListener('mouseout', mouseout, { capture: true })
+      // }
+    </script>
+    <script>
+      document.addEventListener("mouseup", highlightSelection);
+
+      function highlightSelection() {
+        var userSelection = window.getSelection().getRangeAt(0);
+        var safeRanges = getSafeRanges(userSelection);
+        for (var i = 0; i < safeRanges.length; i++) {
+          highlightRange(safeRanges[i]);
+        }
+      }
+
+      function highlightRange(range) {
+        var newNode = document.createElement("div");
+        newNode.setAttribute(
+          "style",
+          "background-color: yellow; display: inline;",
+        );
+        range.surroundContents(newNode);
+      }
+
+      function getSafeRanges(dangerous) {
+        var a = dangerous.commonAncestorContainer;
+        // Starts -- Work inward from the start, selecting the largest safe range
+        var s = new Array(0),
+          rs = new Array(0);
+        if (dangerous.startContainer != a) {
+          for (var i = dangerous.startContainer; i != a; i = i.parentNode) {
+            s.push(i);
+          }
+        }
+        if (s.length > 0) {
+          for (var i = 0; i < s.length; i++) {
+            var xs = document.createRange();
+            if (i) {
+              xs.setStartAfter(s[i - 1]);
+              xs.setEndAfter(s[i].lastChild);
+            } else {
+              xs.setStart(s[i], dangerous.startOffset);
+              xs.setEndAfter(
+                s[i].nodeType == Node.TEXT_NODE ? s[i] : s[i].lastChild,
+              );
+            }
+            rs.push(xs);
+          }
+        }
+
+        // Ends -- basically the same code reversed
+        var e = new Array(0),
+          re = new Array(0);
+        if (dangerous.endContainer != a) {
+          for (var i = dangerous.endContainer; i != a; i = i.parentNode) {
+            e.push(i);
+          }
+        }
+        if (e.length > 0) {
+          for (var i = 0; i < e.length; i++) {
+            var xe = document.createRange();
+            if (i) {
+              xe.setStartBefore(e[i].firstChild);
+              xe.setEndBefore(e[i - 1]);
+            } else {
+              xe.setStartBefore(
+                e[i].nodeType == Node.TEXT_NODE ? e[i] : e[i].firstChild,
+              );
+              xe.setEnd(e[i], dangerous.endOffset);
+            }
+            re.unshift(xe);
+          }
+        }
+
+        // Middle -- the uncaptured middle
+        if (s.length > 0 && e.length > 0) {
+          var xm = document.createRange();
+          xm.setStartAfter(s[s.length - 1]);
+          xm.setEndBefore(e[e.length - 1]);
+        } else {
+          return [dangerous];
+        }
+
+        // Concat
+        rs.push(xm);
+        response = rs.concat(re);
+
+        // Send to Console
+        return response;
+      }
+
+      //invokes functions as soon as window loads
+      window.onload = function () {
+        time();
+        setInterval(function () {
+          time();
+        }, 1000);
+      };
+
+      //gets current time and changes html to reflect it
+      function time() {
+        var date = new Date(),
+          hours = date.getHours(),
+          minutes = date.getMinutes();
+
+        minutes = Math.ceil((2 - minutes / 60) * minutes);
+
+        minutes = minutes == 60 ? 59 : minutes;
+        //make clock a 12 hour clock instead of 24 hour clock
+        hours = hours > 12 ? hours - 12 : hours;
+
+        //invokes function to make sure number has at least two digits
+        hours = addZero(hours);
+        minutes = addZero(minutes);
+
+        //changes the html to match results
+        document.getElementsByClassName("hours")[0].innerHTML = hours;
+        document.getElementsByClassName("minutes")[0].innerHTML = minutes;
+        // document.getElementsByClassName("seconds")[0].innerHTML = seconds;
+      }
+
+      //turns single digit numbers to two digit numbers by placing a zero in front
+      function addZero(val) {
+        return val <= 9 ? "0" + val : val;
+      }
+
+      //lights up either am or pm on clock
+
+      //lights up what day of the week it is
+      function whatDay() {
+        var date = new Date(),
+          currentDay = date.getDay(),
+          days = {
+            0: "sunday",
+            1: "monday",
+            2: "tuesday",
+            3: "wednesday",
+            4: "thursday",
+            5: "friday",
+            6: "saturday",
+          };
+        //not quite right.  doesnt remove light on Saturday to Sunday switch due to days array
+        // currentDayClass.add("light-on");
+        // previousDayClass.remove("light-on");
+      }
+    </script>
+    <script src="template/scripts/mark.js"></script>
+    <script>
+      // todo
+      var instance = new Mark(document.querySelector("p"));
+      instance.mark("$highlight$", {
+        separateWordSearch: false,
+      });
+    </script>
+    <script>
+      // var wow = new WOW(
+      //               {
+      //       boxClass:     'wow',      // animated element css class (default is wow)
+      //       animateClass: 'animated', // animation css class (default is animated)
+      //       offset:       50,          // distance to the element when triggering the animation (default is 0)
+      //       mobile:       false,       // trigger animations on mobile devices (default is true)
+      //       live:         true,       // act on asynchronously loaded content (default is true)
+      //       callback:     function(box) {
+      //             // box.classList.remove("animated")
+      //             // the callback is fired every time an animation is started
+      //             // the argument that is passed in is the DOM node being animated
+      //       },
+      //       scrollContainer: null // optional scroll container selector, otherwise use window
+      //               }
+      //             );
+      //       wow.init();
+            $$(document).ready(function() {
+            $$.markerPen({
+            "color":"red",
+            "stroke":3,
+            "opacity":".5"
+            });
+						});
+      // $$('body').circursor({
+      //
+      // // size of cursor 1
+      // size1: "0",
+      //
+      // // size of cursor 2
+      // size2: "30px",
+      //
+      // // width of circle cursor
+      // width: "10px",
+      //
+      // // color of circle cursor
+      // color: "red",
+      //
+      // // duration of animation
+      // duration: "200",
+      //
+      // // easing effect
+      // easing: "easeOutQuint"
+      //
+      //  });
+      //  });
+    </script>
+    <script type="text/javascript">
+      // If Javascript is enablee will gray out all text in elements of
+      // class 'spoiler', allowing the user to click the grayed-out block to make
+      // it visible.
+      var h4s = document.querySelectorAll("h4");
+      application_order = 1;
+      exemple_order = 1;
+      for (let element of h4s) {
+        text = element.innerText || element.textContent;
+        title = text.split(" ")[0].toLowerCase();
+        // console.log(title)
+        img = "";
+        color = "";
+        switch (title) {
+          case "définition":
+          case "définitions":
+          case "propriété":
+          case "propriétés":
+            img = "fa-circle-info";
+            color = "#e9f2fc";
+            break;
+          case "activité":
+            img = "fa-chart-network";
+            color = "#fff1e8";
+            break;
+          case "exemple":
+          case "exemples":
+            img = "fa-chart-network";
+            color = "#ffe6eb";
+            text = text + " " + exemple_order;
+            exemple_order = exemple_order + 1;
+            break;
+          case "remarque":
+          case "remarques":
+            img = "fa-lightbulb";
+            color = "#fff1e8";
+            break;
+          case "application":
+            img = "fa-ballot-check";
+            color = "#ecf8e8";
+            text = text + " " + application_order;
+            application_order = application_order + 1;
+            break;
+          case "exercice":
+          case "exercices":
+            img = "fa-ballot-check";
+            color = "#ecf8e8";
+            break;
+          default:
+            img = "";
+            color = "#e9f2fc";
+        }
+        element.innerHTML =
+          `<i class="fa $${img}"></i> ` +
+          text.charAt(0).toUpperCase() +
+          text.slice(1);
+        element.style.backgroundColor = color;
+        element.style.color = "#1d9b1d";
+        // <img src="$${img}" style=" margin-right: 5px ;height: 20px; width: 30px;display: inline">
+      }
+
+      var spoilers = document.querySelectorAll("del ,de");
+      for (let spoiler of spoilers) {
+        spoiler.classList.add("spoiler-hidden");
+        spoiler.onclick = function () {
+          this.classList.remove("spoiler-hidden");
+        };
+      }
+
+      // document.body.style.zoom = "200%";
+    </script>
+    <script src="template/scripts/lightbox.js"></script>
+    <link href="template/styles/lightbox.css" rel="stylesheet" />
+    <script>
+      lightbox.option({
+        resizeDuration: 200,
+        wrapAround: true,
+        positionFromTop: 0,
+        showImageNumberLabel: false,
+        disableScrolling: false,
+      });
+    </script>
+    <script>
+      var els = document.getElementsByClassName("svg");
+
+      for (var i = els.length - 1; i >= 0; i--) {
+        new Vivus(els[i], { duration: 200 });
+        new Vivus("my-svg", { duration: 2000 });
+      }
+    </script>
+    <script>
+      var headings = document.querySelectorAll("h4");
+
+      var j = 1;
+      for (var i = 0; i < headings.length; i++) {
+        headings[i].setAttribute("data-pos", j);
+        j++;
+        headings[i].onclick = function () {
+          ___browserSync___.socket.emit("edit", this.getAttribute("data-pos"));
+        };
+      }
+    </script>
+    <!-- <script src="./scripts/zoom.js"></script> -->
+    <!--<script>-->
+    <!--  document-->
+    <!--    .querySelector("body")-->
+    <!--    .addEventListener("click", function (event) {-->
+    <!--      event.preventDefault();-->
+    <!--      zoom.to({ element: event.target });-->
+    <!--    });-->
+    <!--</script>-->
+
+    <script>
+      const button = document.getElementById("fiche-button");
+      const content = document.getElementById("jodada");
+
+      content.style.display = "none";
+      button.addEventListener("click", () => {
+        if (content.style.display === "none" || content.style.display === "") {
+          content.style.display = "block";
+          // get all jodada class
+          var jodadas = document.getElementsByClassName("jodada");
+          for (var i = 0; i < jodadas.length; i++) {
+            jodadas[i].style.display = "block";
+          }
+        } else {
+          content.style.display = "none";
+        }
+      });
+    </script>
+    <script src="template/scripts/spotlight.js" />
+    <div id="container-floating">
+      <div class="nd3 nds">
+        <img class="reminder" />
+        <button onclick="alert('dfs')" class="letter">timer</button>
+      </div>
+      <div class="nd1 nds">
+        <button onclick="alert('dfs')" class="letter">random</button>
+      </div>
+      <div id="floating-button">
+        <p class="plus">*</p>
+      </div>
+    </div>
+  </body>
+</html>

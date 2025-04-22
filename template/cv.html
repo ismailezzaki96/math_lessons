@@ -1,0 +1,73 @@
+<!doctype html>
+<html dir="auto">
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>cv</title>
+    <script>
+      // Mathjax configuration
+      MathJax = {
+        options: {
+          lazyMargin: "200px",
+          lazyAlwaysTypeset: null,
+          // processHtmlClass: 'mermaid',
+        },
+        loader: {
+          load: [
+            "[tex]/bbox",
+            "input/asciimath",
+            "output/chtml",
+            "ui/menu",
+            "ui/lazy",
+            "[tex]/html",
+          ],
+        },
+        // style for mathjax
+        styles: { ".MathJax": { "font-size": "10%" } },
+        tex: {
+          packages: { "[+]": ["html", "bbox"] },
+          inlineMath: [["$$$$", "$$$$"]],
+          displayMath: [["\\[", "\\]"]],
+        },
+        asciimath: {
+          fixphi: true, // true for TeX mapping, false for unicode mapping
+          displaystyle: true, // true for displaystyle typesetting, false for in-line
+          decimalsign: ".", // character to use for decimal separator
+          delimiters: [["$$", "$$"]],
+        },
+      };
+    </script>
+    <!-- <script type="text/javascript" id="MathJax-script" src="scripts/startup.js"></script> -->
+    <script
+      id="MathJax-script"
+      async
+      src="template/scripts/mathjax/tex-chtml.js"
+    ></script>
+    <!-- style -->
+    <!-- <link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css">-->
+    <!-- <link rel="stylesheet" href="styles/cursor.css"/> -->
+    <link rel="stylesheet" href="template/styles/cv.css" />
+    <!-- <link rel="stylesheet" href="styles/animate.css"> -->
+    <link rel="stylesheet" href="template/fontawesome/css/all.min.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css"
+    />
+    <style>
+      @page {
+          size: A4 margin: 0cm;
+          }
+    </style>
+  </head>
+
+  <body class="A4">
+    <section class="sheet padding-10mm">$body$</section>
+  </body>
+</html>

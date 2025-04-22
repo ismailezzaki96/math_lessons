@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generator with Animation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 5px;
+            margin: 5px;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Number Generator with Animation</h1>
+    <label for="min">Min:</label>
+    <input type="number" id="min" placeholder="Default: 1">
+    <label for="max">Max:</label>
+    <input type="number" id="max" placeholder="Enter max value">
+    <button onclick="generateRandomNumber()">Generate</button>
+    <div id="result">🎲</div>
+
+    <script>
+        function generateRandomNumber() {
+            const minInput = document.getElementById('min').value;
+            const maxInput = document.getElementById('max').value;
+
+            const min = minInput ? parseInt(minInput, 10) : 1; // Default to 1
+            const max = parseInt(maxInput, 10);
+
+            if (isNaN(max) || max < min) {
+                document.getElementById('result').textContent = 'Please enter a valid max value greater than or equal to min.';
+                return;
+            }
+
+            const resultElement = document.getElementById('result');
+            let animationInterval;
+
+            // Start the animation
+            const startAnimation = () => {
+                animationInterval = setInterval(() => {
+                    const randomAnim = Math.floor(Math.random() * (max - min + 1)) + min;
+                    resultElement.textContent = randomAnim;
+                }, 100); // Update number every 100ms
+            };
+
+            // Stop the animation and show the final number
+            const stopAnimation = () => {
+                clearInterval(animationInterval);
+                const finalNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+                resultElement.textContent = `Random Number: ${finalNumber}`;
+            };
+
+            startAnimation();
+            setTimeout(stopAnimation, 3000); // Run animation for 3 seconds
+        }
+    </script>
+</body>
+</html>

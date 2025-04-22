@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html dir="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>$title$</title>
+    <!-- script -->
+    <script>
+      MathJax = {
+      loader: {
+      load: ["input/asciimath", "output/chtml"],
+      },
+      styles: {
+      '.mjx-chtml': { padding: '0.1em 0.1em' }, //new names of the selectors, working!
+      '.MJXc-display, .mjx-chtml': { color: 'green' },
+      'mjx-mover': { color: 'green' }
+      },
+      asciimath: {
+      delimiters: [
+      ["$$", "$$"]
+      ],
+      },
+      };
+    </script>
+    <!-- <script type="text/javascript" id="MathJax-script" src="scripts/startup.js"></script> -->
+    <script id="MathJax-script" async src="./template/scripts/mathjax/tex-chtml.js"></script>
+    <!-- <script src="scripts/deployggb.js"></script> -->
+    <!-- style -->
+    <!-- <link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css">-->
+    <!-- <link rel="stylesheet" href="styles/cursor.css"/> -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- <link rel="stylesheet" href="./template/styles/latex.css" /> -->
+    <link rel="stylesheet" href="./template/styles/paper.css">
+    <!-- <link rel="stylesheet" href="styles/animate.css"> -->
+    <!-- <script src="scripts/tailwind.js"></script> -->
+
+    <style>
+      table {
+        border-collapse: collapse; /* Optional: merges borders into single lines */
+        width: 100%; /* Optional: make table span full width */
+      }
+
+      th,
+      td {
+        border: 1px solid black; /* Add a 1px solid black border */
+        padding: 8px; /* Optional: spacing inside cells */
+      }
+
+      th {
+        background-color: #f2f2f2; /* Optional: light gray background for header */
+      }
+    </style>
+    <style>
+      @page { size: $size$ }
+
+      ::first-letter , h1::first-letter , h2::first-letter , h3::first-letter {
+      text-transform: capitalize;
+      }
+      p, ol ,ul, h2, h3, h4, h5, h6 {
+          margin: 0;
+      }
+    </style>
+  </head>
+  <body class="$size$ libertinus">
+    <section class="">
+      $body$
+    </section>
+    <!-- <script type="module"> -->
+    <!--   document.querySelectorAll("pre").forEach(function (el) { -->
+    <!--   if (!el.className) return; -->
+    <!--   el.innerHTML = el.firstElementChild.innerHTML; -->
+    <!--   // el.firstElementChild.classList.add( el.className); -->
+    <!--   // el.removeAttribute('class'); -->
+    <!--   }); -->
+    <!--   import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"; -->
+    <!--   mermaid.initialize({ -->
+    <!--   startOnLoad: true, -->
+    <!--   }); -->
+    <!-- </script> -->
+    <!-- zoom js -->
+    <!-- <script src="https://lab.hakim.se/zoom-js/js/zoom.js"></script> -->
+    <!-- <script> -->
+    <!-- 	document.querySelector( 'body' ).addEventListener( 'click', function( event ) { -->
+    <!-- 		event.preventDefault(); -->
+    <!-- 		zoom.to({ element: event.target }); -->
+    <!-- 	} ); -->
+    <!-- -->
+    <!-- </script> -->
+    <!-- <script> -->
+    <!--   animations=["zoomIn","zoomInDown","zoomInLeft","zoomInRight","zoomInUp", "fadeIn","fadeInDown","fadeInDownBig","fadeInLeft","fadeInLeftBig","fadeInRight","fadeInRightBig","fadeInUp","fadeInUpBig"] ; -->
+    <!---->
+    <!--           const random = Math.floor(Math.random() * animations.length); -->
+    <!--         // animations = ["shake"]; -->
+    <!--           to_animate= document.querySelectorAll("*") -->
+    <!--       // alert(animations[random]) -->
+    <!--           for (i=0; i < to_animate.length; i++) { -->
+    <!---->
+    <!--                  to_animate[i].classList.add("wow", animations[random]); -->
+    <!--                        to_animate[i].setAttribute("data-wow-iteration", "1"); -->
+    <!--                        to_animate[i].setAttribute("data-wow-duration", "3s"); -->
+    <!--           } -->
+    <!-- </script> -->
+    <!-- <script circle-outline="disable" pause-animation="disable" size="10"  color="#ffffff" src='scripts/cursor.js'></script> -->
+    <!-- <script src="scripts/jquery-3.6.0.min.js"></script> -->
+    <!-- <script src="scripts/markerPen.js"></script> -->
+    <!-- <script src="scripts/wow.js"></script> -->
+    <!-- <script> -->
+    <!--   var wow = new WOW( -->
+    <!--                 { -->
+    <!--         boxClass:     'wow',      // animated element css class (default is wow) -->
+    <!--         animateClass: 'animated', // animation css class (default is animated) -->
+    <!--         offset:       50,          // distance to the element when triggering the animation (default is 0) -->
+    <!--         mobile:       true,       // trigger animations on mobile devices (default is true) -->
+    <!--         live:         true,       // act on asynchronously loaded content (default is true) -->
+    <!--         callback:     function(box) { -->
+    <!--               // box.classList.remove("animated") -->
+    <!--               // the callback is fired every time an animation is started -->
+    <!--               // the argument that is passed in is the DOM node being animated -->
+    <!--         }, -->
+    <!--         scrollContainer: null // optional scroll container selector, otherwise use window -->
+    <!--                 } -->
+    <!--               ); -->
+    <!--         wow.init(); -->
+    <!--         $$(document).ready(function() { -->
+    <!--         $$.markerPen({ -->
+    <!--         "color":"yellow", -->
+    <!--         "stroke":20, -->
+    <!--         "opacity":".7" -->
+    <!--         }); -->
+    <!--         }); -->
+    <!-- </script> -->
+  </body>
+</html>
