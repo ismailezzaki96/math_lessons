@@ -4,6 +4,25 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta charset="utf-8" />
     <title></title>
+    <style>
+      #panel,
+      .flip {
+        font-size: 16px;
+        padding: 10px;
+        text-align: center;
+        border: solid 1px #a6d8a8;
+        margin: auto;
+      }
+
+      #panel {
+        display: none;
+      }
+    </style>
+    <script>
+      function myFunction() {
+        document.getElementById("panel").style.display = "block";
+      }
+    </script>
     <script>
       // Mathjax configuration
       MathJax = {
@@ -87,7 +106,7 @@
     <!-- <link rel="stylesheet" href="styles/cursor.css"/> -->
     <link rel="stylesheet" href="template/styles/style.css" />
     <!-- <link rel="stylesheet" href="styles/animate.css"> -->
-<link rel="stylesheet" href="template/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="template/fontawesome/css/all.min.css" />
     <style>
       @page {
           size:  margin: 0cm;
@@ -108,18 +127,6 @@
     <!--   </select> -->
     <!-- </div> -->
     <section class="sheet padding-5mm">
-      <div class="student">
-        <button onclick='window.open( document.title+".pdf")' type="button">
-          le cours pdf
-        </button>
-        <button onclick='window.open( "serie.pdf")' type="button">
-          serie des exercies pdf
-        </button>
-        <button onclick='window.open( "resume.pdf")' type="button">
-          Résumé pdf
-        </button>
-        <button id="fiche-button">fiche</button>
-      </div>
       <div class="clock" id="clock">
         <span class="hours"></span>
         :
@@ -127,26 +134,58 @@
         <!-- : -->
         <!-- <span class="seconds"></span> -->
       </div>
-      <div id="TOC" style="display: none"><ul>
-<li><a href="#test-de-prérequis-fonctions" id="toc-test-de-prérequis-fonctions">Test de Prérequis Fonctions</a></li>
-<li><a href="#fonctions-numériques" id="toc-fonctions-numériques">Fonctions numériques</a>
-<ul>
-<li><a href="#fonction-numérique" id="toc-fonction-numérique">Fonction numérique</a>
-<ul>
-<li><a href="#activité" id="toc-activité">Activité :</a></li>
-<li><a href="#définition" id="toc-définition">définition</a></li>
-<li><a href="#application" id="toc-application">Application</a></li>
-</ul></li>
-<li><a href="#ensemble-de-définition" id="toc-ensemble-de-définition">Ensemble de définition</a>
-<ul>
-<li><a href="#activité-1" id="toc-activité-1">Activité :</a></li>
-<li><a href="#définition-1" id="toc-définition-1">définition</a></li>
-<li><a href="#remarque" id="toc-remarque">Remarque</a></li>
-<li><a href="#exemple" id="toc-exemple">+Exemple</a></li>
-<li><a href="#application-1" id="toc-application-1">application</a></li>
-</ul></li>
-</ul></li>
-</ul></div>
+      <div id="TOC" style="display: none">
+        <ul>
+          <li>
+            <a href="#test-de-prérequis" id="toc-test-de-prérequis"
+              >Test de Prérequis</a
+            >
+          </li>
+          <li>
+            <a href="#fonctions-numériques" id="toc-fonctions-numériques"
+              >Fonctions numériques</a
+            >
+            <ul>
+              <li>
+                <a href="#fonction-numérique" id="toc-fonction-numérique"
+                  >Fonction numérique</a
+                >
+                <ul>
+                  <li><a href="#activité" id="toc-activité">Activité :</a></li>
+                  <li>
+                    <a href="#définition" id="toc-définition">définition</a>
+                  </li>
+                  <li>
+                    <a href="#application" id="toc-application">Application</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a
+                  href="#ensemble-de-définition"
+                  id="toc-ensemble-de-définition"
+                  >Ensemble de définition</a
+                >
+                <ul>
+                  <li>
+                    <a href="#activité-1" id="toc-activité-1">Activité :</a>
+                  </li>
+                  <li>
+                    <a href="#définition-1" id="toc-définition-1">définition</a>
+                  </li>
+                  <li><a href="#remarque" id="toc-remarque">Remarque</a></li>
+                  <li><a href="#exemple" id="toc-exemple">Exemple</a></li>
+                  <li>
+                    <a href="#application-1" id="toc-application-1"
+                      >application</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
 
       <h1></h1>
       <!--Term 1-->
@@ -155,200 +194,344 @@
       <!--Term 2 with *inline markup*-->
       <!--: Definition 2-->
       <!-- ![alt text](./images/Masque2.jpg)  -->
-      <h1 id="test-de-prérequis-fonctions">Test de Prérequis Fonctions</h1>
-      <p><strong>1.
-      Pour chaque fonction ci-dessous, cochez la bonne(s) case(s) :</strong></p>
-      <table>
-      <thead>
-      <tr>
-      <th>Fonction</th>
-      <th>Affine</th>
-      <th>Linéaire</th>
-      <th>Ni affine ni linéaire</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-      <td>a) $f(x) = 3x - 5$</td>
-      <td>☐</td>
-      <td>☐</td>
-      <td>☐</td>
-      </tr>
-      <tr>
-      <td>b) $g(x) = -2x$</td>
-      <td>☐</td>
-      <td>☐</td>
-      <td>☐</td>
-      </tr>
-      <tr>
-      <td>c) $h(x) = x^2 + 1$</td>
-      <td>☐</td>
-      <td>☐</td>
-      <td>☐</td>
-      </tr>
-      <tr>
-      <td>d) $k(x) = 7$</td>
-      <td>☐</td>
-      <td>☐</td>
-      <td>☐</td>
-      </tr>
-      <tr>
-      <td>e) $m(x) = 0$</td>
-      <td>☐</td>
-      <td>☐</td>
-      <td>☐</td>
-      </tr>
-      </tbody>
-      </table>
-      <p><strong>2.
-      Quelle est l’ordonnée à l’origine de la fonction $f(x) = -4x + 7$ ?</strong></p>
-      <ul class="task-list">
-      <li><label><input type="checkbox" />$-4$</label></li>
-      <li><label><input type="checkbox" />$7$</label></li>
-      <li><label><input type="checkbox" />$0$</label></li>
-      <li><label><input type="checkbox" />$3$</label></li>
-      </ul>
-      <p><strong>3.
-      Quelle est la pente (coefficient directeur) de la droite représentant $f(x) = 2x - 3$ ?</strong></p>
-      <ul class="task-list">
-      <li><label><input type="checkbox" />$2$</label></li>
-      <li><label><input type="checkbox" />$-3$</label></li>
-      <li><label><input type="checkbox" />$0$</label></li>
-      <li><label><input type="checkbox" />$1$</label></li>
-      </ul>
-      <p><strong>4.
-      Parmi les fonctions suivantes, laquelle a un graphe qui passe par l’origine ?</strong></p>
-      <ul class="task-list">
-      <li><label><input type="checkbox" />$f(x) = 5x - 1$</label></li>
-      <li><label><input type="checkbox" />$g(x) = -2x$</label></li>
-      <li><label><input type="checkbox" />$h(x) = x + 3$</label></li>
-      <li><label><input type="checkbox" />$k(x) = 4$</label></li>
-      </ul>
-      <p><strong>5.
-      Résoudre l’équation suivante : $2x - 3 = x + 1$</strong></p>
-      <ul class="task-list">
-      <li><label><input type="checkbox" />$x = 1$</label></li>
-      <li><label><input type="checkbox" />$x = -4$</label></li>
-      <li><label><input type="checkbox" />$x = 4$</label></li>
-      <li><label><input type="checkbox" />$x = 0$</label></li>
-      </ul>
+      <h1 id="test-de-prérequis">Test de Prérequis</h1>
+      <script
+        type="text/javascript"
+        src="https://alpsquid.github.io/quizlib/javascripts/quizlib.1.0.1.min.js"
+      ></script>
+
+      <div id="quiz-div">
+        <div class="quizlib-question my-class">
+          <div class="quizlib-question-title">
+            1. Quelle est l’ordonnée à l’origine de la fonction $f(x) = -4x + 7$
+            ?
+          </div>
+          <div class="quizlib-question-answers">
+            <input type="radio" name="q1" value="a" /> $-4$<br />
+            <input type="radio" name="q1" value="b" /> $7$<br />
+            <input type="radio" name="q1" value="c" /> $0$<br />
+            <input type="radio" name="q1" value="d" /> $3$<br />
+          </div>
+        </div>
+
+        <div class="quizlib-question my-class">
+          <div class="quizlib-question-title">
+            2. Quelle est la pente (coefficient directeur) de la droite
+            représentant $f(x) = 2x - 3$ ?
+          </div>
+          <div class="quizlib-question-answers">
+            <input type="radio" name="q2" value="a" /> $2$<br />
+            <input type="radio" name="q2" value="b" /> $-3$<br />
+            <input type="radio" name="q2" value="c" /> $0$<br />
+            <input type="radio" name="q2" value="d" /> $1$<br />
+          </div>
+        </div>
+
+        <div class="quizlib-question my-class">
+          <div class="quizlib-question-title">
+            3. Parmi les fonctions suivantes, laquelle a un graphe qui passe par
+            l’origine ?
+          </div>
+          <div class="quizlib-question-answers">
+            <input type="radio" name="q3" value="a" /> $f(x) = 5x - 1$<br />
+            <input type="radio" name="q3" value="b" /> $g(x) = -2x$<br />
+            <input type="radio" name="q3" value="c" /> $h(x) = x + 3$<br />
+            <input type="radio" name="q3" value="d" /> $k(x) = 4$<br />
+          </div>
+        </div>
+
+        <div class="quizlib-question my-class">
+          <div class="quizlib-question-title">
+            4. Résoudre l’équation suivante : $2x - 3 = x + 1$
+          </div>
+          <div class="quizlib-question-answers">
+            <input type="radio" name="q4" value="a" /> $x = 1$<br />
+            <input type="radio" name="q4" value="b" /> $x = -4$<br />
+            <input type="radio" name="q4" value="c" /> $x = 4$<br />
+            <input type="radio" name="q4" value="d" /> $x = 0$<br />
+          </div>
+        </div>
+
+        <button type="button" onclick="myAnswerCheckMethod();">
+          vérifier les réponses
+        </button>
+      </div>
+
+      <script>
+        var quiz = new Quiz("quiz-div", ["b", "a", "b", "c"]);
+        function myAnswerCheckMethod() {
+          // checkAnswers returns true if all questions have been answered and updates the result object
+          if (quiz.checkAnswers()) {
+            alert(
+              "les responses correctes: " +
+                quiz.result.score +
+                "/" +
+                quiz.result.totalQuestions,
+            );
+            alert("pourcentage " + quiz.result.scorePercentFormatted + "%");
+          }
+
+          // Alternatively, we can ignore unanswered questions by passing false
+          quiz.checkAnswers(false);
+          alert(
+            "les responses correctes: " +
+              quiz.result.score +
+              "/" +
+              quiz.result.totalQuestions,
+          );
+          alert("pourcentage " + quiz.result.scorePercentFormatted + "%");
+
+          // We can also use the highResults method to highlight correct and incorrect answers.
+          // We pass a callback which takes the quiz object, the current question, the question number and whether it was answered correctly.
+          quiz.highlightResults(myHandleAnswerMethod);
+        }
+
+        // Callback for quiz.highlightResults called for each question. Parameters are: The quiz object the question belongs to,
+        // the question element, the question number and a boolean indicating if the question was answered correctly.
+        function myHandleAnswerMethod(quiz, question, no, correct) {
+          if (!correct) {
+            // Highlight the correct answers.
+            // See the example code on GitHub for an example implementation.
+          }
+        }
+      </script>
       <hr />
       <h1 id="fonctions-numériques">Fonctions numériques</h1>
       <h2 id="fonction-numérique">Fonction numérique</h2>
       <figure>
-
-                  <br/>
-                  <div class="ggb" id="4244423e54ab8e5c0b5eb5715e7a61604bb2e7e4"></div>
-                              <script>
-                              var id = "4244423e54ab8e5c0b5eb5715e7a61604bb2e7e4";
-      params.filename = "./images/machine.ggb";
-      var applet = new GGBApplet(params, true);
-          applet.setHTML5Codebase('GeoGebra/HTML5/5.0/webSimple/');
+        <br />
+        <div class="ggb" id="4244423e54ab8e5c0b5eb5715e7a61604bb2e7e4"></div>
+        <script>
+          var id = "4244423e54ab8e5c0b5eb5715e7a61604bb2e7e4";
+          params.filename = "./images/machine.ggb";
+          var applet = new GGBApplet(params, true);
+          applet.setHTML5Codebase("GeoGebra/HTML5/5.0/webSimple/");
           applet.inject(id);
-                              </script>
-      <br/>
-                              
-      <figcaption>alt text</figcaption>
+        </script>
+        <br />
+
+        <figcaption>alt text</figcaption>
       </figure>
       <h4 id="activité">Activité :</h4>
-      <p>On considere un rectangle de longueur $(x—1)cm$ et de largeur $(x—2)cm$ tel que x un réel supérieur strictement a 2.</p>
+      <p>
+        On considere un rectangle de longueur $(x—1)cm$ et de largeur $(x—2)cm$
+        tel que x un réel supérieur strictement a 2.
+      </p>
       <p>On désigne par $f(x)$ la <strong>surface</strong> de ce rectangle</p>
       <ol type="1">
-      <li>Déterminer l’expression de $f(x)$</li>
-      <li>Déterminer la surface du rectangle si $x=4$</li>
-      <li>Déterminer les valeurs possibles de $x$ si $f(x)=8$</li>
+        <li>Déterminer l’expression de $f(x)$</li>
+        <li>Déterminer la surface du rectangle si $x=4$</li>
+        <li>Déterminer les valeurs possibles de $x$ si $f(x)=8$</li>
       </ol>
       <h4 id="définition">définition</h4>
+      <iframe
+        width="100%"
+        height="500"
+        src="https://www.youtube.com/embed/E4SY8_L-DTA"
+        title="YouTube video player"
+        frameborder="0"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      >
+      </iframe>
       <figure>
-      <img src="./images/function-cogs.svg" style="width:50.0%" alt="alt text" />
-      <figcaption aria-hidden="true">alt text</figcaption>
+        <img
+          src="./images/function-cogs.svg"
+          style="width: 50%"
+          alt="alt text"
+        />
+        <figcaption aria-hidden="true">alt text</figcaption>
       </figure>
       <figure>
-      <img src="./images/function-fx-x2.svg" style="width:50.0%" alt="alt text" />
-      <figcaption aria-hidden="true">alt text</figcaption>
+        <img
+          src="./images/function-fx-x2.svg"
+          style="width: 50%"
+          alt="alt text"
+        />
+        <figcaption aria-hidden="true">alt text</figcaption>
       </figure>
       <p>Soit $D$ une partie de $RR$</p>
-      <p>On appelle fonction numérique (noté $f$) : toute relation qui a associée chaque nombre réel $x$ de $D$ par un seul nombre réel $y$ qu’on note $f(x)$ et on écrit</p>
+      <p>
+        On appelle fonction numérique (noté $f$) : toute relation qui a associée
+        chaque nombre réel $x$ de $D$ par un seul nombre réel $y$ qu’on note
+        $f(x)$ et on écrit
+      </p>
       <p>$f: D -&gt; RR$</p>
       <p>$x -&gt; f(x)=y$</p>
       <ul>
-      <li>$f(x)=y$ : S’appelle ’image de $x$ par la fonction $f$</li>
-      <li>Le nombre $x$ s’appelle antécédent de $y$ par la fonction $f$</li>
+        <li>$f(x)=y$ : S’appelle ’image de $x$ par la fonction $f$</li>
+        <li>Le nombre $x$ s’appelle antécédent de $y$ par la fonction $f$</li>
       </ul>
+      <iframe
+        width="100%"
+        height="500"
+        src="https://www.youtube.com/embed/FjqPwHS7vE8"
+        title="YouTube video player"
+        frameborder="0"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      >
+      </iframe>
+      <iframe
+        width="100%"
+        height="500"
+        src="https://www.youtube.com/embed/0NakIDu5dQU"
+        title="YouTube video player"
+        frameborder="0"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      >
+      </iframe>
       <h4 id="application">Application</h4>
       <p>On considère une fonction numérique définie par $f(x)=3x^2-1$</p>
       <ol type="1">
-      <li>Déterminer les images de 1 ; -2 et $3/4$ par la fonction $f$</li>
-      <li>Déterminer les antécédents, s’ils existent, des nombres suivants 0, 5 et -4 par la fonction $f$</li>
+        <li>Déterminer les images de 1 ; -2 et $3/4$ par la fonction $f$</li>
+        <li>
+          Déterminer les antécédents, s’ils existent, des nombres suivants 0, 5
+          et -4 par la fonction $f$
+        </li>
       </ol>
       <h2 id="ensemble-de-définition">Ensemble de définition</h2>
       <h4 id="activité-1">Activité :</h4>
       <p>Soit $f$ une fonction numérique définie par $f(x)= 1/(x^2 -1)$</p>
       <ul>
-      <li>Déterminer les images de 0 ;2 ;</li>
-      <li>Peut on calculer les images de 1 et -1 par la fonction $f$ ?</li>
+        <li>Déterminer les images de 0 ;2 ;</li>
+        <li>Peut on calculer les images de 1 et -1 par la fonction $f$ ?</li>
       </ul>
       <h4 id="définition-1">définition</h4>
-      <p>On appelle <mark>ensemble de définition</mark> d’une fonction numérique $f$ , l’ensemble des nombres réels $x$ pour lesquels l’image $f(x)$ est <mark>bien définie</mark> et se note souvent $D_f$, On écrit $D_f={x in RR // f(x) in RR}$.</p>
+      <iframe
+        width="100%"
+        height="500"
+        src="https://www.youtube.com/embed/VZ4XNCPLo9w"
+        title="YouTube video player"
+        frameborder="0"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      >
+      </iframe>
+      <p>
+        On appelle <mark>ensemble de définition</mark> d’une fonction numérique
+        $f$ , l’ensemble des nombres réels $x$ pour lesquels l’image $f(x)$ est
+        <mark>bien définie</mark> et se note souvent $D_f$, On écrit $D_f={x in
+        RR // f(x) in RR}$.
+      </p>
       <h4 id="remarque">Remarque</h4>
-      <p>Pour déterminer l’ensemble de définition d’une fonction $f$ ; il faut <strong>éliminer</strong> tous les nombres réels pour lesquels</p>
+      <p>
+        Pour déterminer l’ensemble de définition d’une fonction $f$ ; il faut
+        <strong>éliminer</strong> tous les nombres réels pour lesquels
+      </p>
       <ul>
-      <li>le dénominateur est nul</li>
-      <li>le nombre sous la racine carrée est négatif.</li>
+        <li>le dénominateur est nul</li>
+        <li>le nombre sous la racine carrée est négatif.</li>
       </ul>
       <p>Soient $P ( x )$ et $Q ( x )$ deux fonctions polynômes.</p>
       <table>
-      <colgroup>
-      <col style="width: 36%" />
-      <col style="width: 63%" />
-      </colgroup>
-      <thead>
-      <tr>
-      <th>Fonction</th>
-      <th>Ensemble de definition</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-      <td>$x -&gt; P(x)$</td>
-      <td>$D_f = RR$</td>
-      </tr>
-      <tr>
-      <td>$x -&gt; ( P(x) )/( Q(x) )$</td>
-      <td>$D_f = {x in RR // Q(x) != 0}$</td>
-      </tr>
-      <tr>
-      <td>$x -&gt; sqrt(P(x))$</td>
-      <td>$D_f = {x in RR // P(x) &gt;= 0}$</td>
-      </tr>
-      <tr>
-      <td>$x -&gt; ( P(x) )/( sqrt( Q(x)) )$</td>
-      <td>$D_f = {x in RR // Q(x) &gt; 0}$</td>
-      </tr>
-      <tr>
-      <td>$x -&gt; sqrt(( P(x) )/( Q(x) ))$</td>
-      <td>$D_f = {x in RR //( P(x) )/( Q(x) ) &gt;= 0 quad et quad Q(x) != 0}$</td>
-      </tr>
-      <tr>
-      <td>$x -&gt; ( sqrt(P(x)) )/( sqrt( Q(x)) )$</td>
-      <td>$D_f = {x in RR // P(x) &gt;= 0 quad et quad Q(x) &gt; 0}$</td>
-      </tr>
-      </tbody>
+        <colgroup>
+          <col style="width: 36%" />
+          <col style="width: 63%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Fonction</th>
+            <th>Ensemble de definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>$x -&gt; P(x)$</td>
+            <td>$D_f = RR$</td>
+          </tr>
+          <tr>
+            <td>$x -&gt; ( P(x) )/( Q(x) )$</td>
+            <td>$D_f = {x in RR // Q(x) != 0}$</td>
+          </tr>
+          <tr>
+            <td>$x -&gt; sqrt(P(x))$</td>
+            <td>$D_f = {x in RR // P(x) &gt;= 0}$</td>
+          </tr>
+          <tr>
+            <td>$x -&gt; ( P(x) )/( sqrt( Q(x)) )$</td>
+            <td>$D_f = {x in RR // Q(x) &gt; 0}$</td>
+          </tr>
+          <tr>
+            <td>$x -&gt; sqrt(( P(x) )/( Q(x) ))$</td>
+            <td>
+              $D_f = {x in RR //( P(x) )/( Q(x) ) &gt;= 0 quad et quad Q(x) !=
+              0}$
+            </td>
+          </tr>
+          <tr>
+            <td>$x -&gt; ( sqrt(P(x)) )/( sqrt( Q(x)) )$</td>
+            <td>$D_f = {x in RR // P(x) &gt;= 0 quad et quad Q(x) &gt; 0}$</td>
+          </tr>
+        </tbody>
       </table>
-      <h4 id="exemple">+Exemple</h4>
+      <h4 id="exemple">Exemple</h4>
       <p>Soient $f(x) = x^3 + 3x^2 - 2$ et $f(x) = (3x-1)/(2x+1)$</p>
+			<p> trouver $D_f$</p>
+
+<p class="flip" onclick="myFunction()">Click pour voir la réponse</p>
+
+<div id="panel">
+      <p>
+        Pour déterminer l'ensemble de définition $D_f$ de chaque fonction, on
+        regarde les valeurs de $x$ pour lesquelles l'expression est
+        <strong>valide</strong> (définie).
+      </p>
+      <ol type="1">
+        <li>$f(x) = x^3 + 3x^2 - 2$</li>
+      </ol>
+      <p>
+        C'est un <strong>polynôme</strong>, donc défini pour
+        <strong>tout réel</strong>.
+      </p>
+      <p>
+        <embed
+          src="/home/team/projects/lycee/TCS/cours/11 Fonctions numériques/noto-emoji/2705.pdf"
+          title="fig:"
+          style="height: 1em"
+        />
+        <strong>Ensemble de définition</strong> : $D_f = \mathbb{R}$
+      </p>
+      <ol start="2" type="1">
+        <li>$f(x) = \frac{3x - 1}{2x + 1}$</li>
+      </ol>
+      <p>
+        C'est une <strong>fonction rationnelle</strong>, définie partout sauf là
+        où le <strong>dénominateur est nul</strong> :
+      </p>
+      <p>On résout : $2x + 1 = 0 \quad \Rightarrow \quad x = -\frac{1}{2}$</p>
+      <p>
+        <embed
+          src="/home/team/projects/lycee/TCS/cours/11 Fonctions numériques/noto-emoji/274c.pdf"
+          title="fig:"
+          style="height: 1em"
+        />
+        Donc, $f(x)$ <strong>n’est pas définie</strong> pour $x = -\frac{1}{2}$
+      </p>
+      <p>
+        <embed
+          src="/home/team/projects/lycee/TCS/cours/11 Fonctions numériques/noto-emoji/2705.pdf"
+          title="fig:"
+          style="height: 1em"
+        />
+        <strong>Ensemble de définition</strong> : $D_f = \mathbb{R} \setminus {
+        -\frac{1}{2} }$
+      </p>
+</div>
+
       <h4 id="application-1">application</h4>
       <p>Déterminer l’ensemble de définition des fonctions suivantes:</p>
       <!-- ![alt text](./images/20240418_230453.png){width=100% } -->
       <ul>
-      <li>$f_1 : x \mapsto x^2 + 3x - 5$</li>
-      <li>$f_2 : x \mapsto \frac{-2x + 4}{3x + 4}$</li>
-      <li>$f_3 : x \mapsto \frac{\sqrt{x}}{x^2 + x - 2}$</li>
-      <li>$f_4 : x \mapsto \frac{4x^2 - 5}{\sqrt{2x^2 + 2x - 4}}$</li>
-      <li>$f_5 : x \mapsto \frac{\sqrt{2 - x}}{|x + 2| - 3}$</li>
-      <li>$f_6 : x \mapsto \sqrt{\frac{2 - x}{4x + 2}}$</li>
-      <li>$f_7 : x \mapsto \frac{\sqrt{2 - x}}{\sqrt{4x + 2}}$</li>
-      <li>$f_8 : x \mapsto \frac{\sin^2(x)}{\cos^2(x) - 1}$</li>
+        <li>$f_1 : x \mapsto x^2 + 3x - 5$</li>
+        <li>$f_2 : x \mapsto \frac{-2x + 4}{3x + 4}$</li>
+        <li>$f_3 : x \mapsto \frac{\sqrt{x}}{x^2 + x - 2}$</li>
+        <li>$f_4 : x \mapsto \frac{4x^2 - 5}{\sqrt{2x^2 + 2x - 4}}$</li>
+        <li>$f_5 : x \mapsto \frac{\sqrt{2 - x}}{|x + 2| - 3}$</li>
+        <li>$f_6 : x \mapsto \sqrt{\frac{2 - x}{4x + 2}}$</li>
+        <li>$f_7 : x \mapsto \frac{\sqrt{2 - x}}{\sqrt{4x + 2}}$</li>
+        <li>$f_8 : x \mapsto \frac{\sin^2(x)}{\cos^2(x) - 1}$</li>
       </ul>
     </section>
     <br />
@@ -655,13 +838,13 @@
       //               }
       //             );
       //       wow.init();
-            $(document).ready(function() {
-            $.markerPen({
-            "color":"red",
-            "stroke":3,
-            "opacity":".5"
-            });
-						});
+      $(document).ready(function () {
+        $.markerPen({
+          color: "red",
+          stroke: 3,
+          opacity: ".5",
+        });
+      });
       // $('body').circursor({
       //
       // // size of cursor 1
@@ -814,6 +997,23 @@
           content.style.display = "none";
         }
       });
+    </script>
+    <script>
+      document
+        .querySelectorAll('a[href*="youtube.com/watch"], a[href*="youtu.be/"]')
+        .forEach((link) => {
+          let url = new URL(link.href);
+          let videoId = "";
+          videoId = url.searchParams.get("v");
+          if (videoId) {
+            const iframe = document.createElement("iframe");
+            iframe.src = `https://www.youtube.com/embed/`;
+            iframe.width = "560";
+            iframe.height = "315";
+            iframe.frameBorder = "0";
+            link.replaceWith(iframe);
+          }
+        });
     </script>
     <script src="template/scripts/spotlight.js" />
     <div id="container-floating">
